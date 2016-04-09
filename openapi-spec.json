@@ -1,0 +1,612 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Open Referral API",
+    "description": "This is a specification describing the Open Referral API, using the Human Services Specification. This has been extracted from the Ohana API deployment, but will be standardized to refer to the universal standard that will apply to any Open Referral compliant API.",
+    "termsOfService": "https://openreferral.org/documentation/",
+    "contact": {
+      "name": "Open Referral",
+      "url": "https://openreferral.org/",
+      "email": null
+    },
+    "license": {
+      "name": null,
+      "url": null
+    },
+    "version": "v1"
+  },
+  "host": "api.example.com",
+  "basePath": "/api/",
+  "schemes": [
+    "http"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "paths": {
+    "/categories": {
+      "get": {
+        "summary": "Get all categories",
+        "description": "Get all categories",
+        "operationId": "get-all-categories",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "Categories"
+        ]
+      }
+    },
+    "/locations": {
+      "get": {
+        "summary": "Get all locations",
+        "description": "Get all locations",
+        "operationId": "get-all-locations",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "description": "The particular page of results."
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "description": "Amount of locations to return per page, up to 100."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "Locations"
+        ]
+      }
+    },
+    "/locations/:location_id": {
+      "delete": {
+        "summary": "Delete an existing location",
+        "description": "Delete an existing location",
+        "operationId": "delete-an-existing-location",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "location_id",
+            "description": "The location id.",
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "Locations"
+        ]
+      }
+    },
+    "/locations/:location_id/mail_address": {
+      "post": {
+        "summary": "Create a new mail address",
+        "description": "Create a new mail address",
+        "operationId": "create-a-new-mail-address",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "address_1",
+            "description": "The primary part of the Street Address or P.O. Box number."
+          },
+          {
+            "in": "query",
+            "name": "address_2",
+            "description": "The secondary part of the Street Address, such as the Suite, Room, or Floor number"
+          },
+          {
+            "in": "query",
+            "name": "attention",
+            "description": "Any person the letter might be addressed to."
+          },
+          {
+            "in": "query",
+            "name": "city",
+            "description": "The City name"
+          },
+          {
+            "in": "query",
+            "name": "country",
+            "description": "2-letter ISO 3361-1 country code"
+          },
+          {
+            "in": "path",
+            "name": "location_id",
+            "description": "The location id.",
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "in": "query",
+            "name": "postal_code",
+            "description": "A valid postal code. Note that the API currently assumes this will be a US 5 or 9-digit ZIP code. 9-digit ZIP codes are separated with a dash, like this: 94025-9881. If you are using non-US data, you will need to replace the postal code validation with your own."
+          },
+          {
+            "in": "query",
+            "name": "state_province",
+            "description": "2-letter US state_province abbreviation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "Locations"
+        ]
+      }
+    },
+    "/locations/:location_id/mail_address/:mail_address_id": {
+      "delete": {
+        "summary": "Delete an existing mail address",
+        "description": "Delete an existing mail address",
+        "operationId": "delete-an-existing-mail-address",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "location_id",
+            "description": "The location id.",
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "in": "path",
+            "name": "mail_address_id",
+            "description": "The mail address id.",
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          ""
+        ]
+      }
+    },
+    "/locations/:location_id/phones": {
+      "post": {
+        "summary": "Create a new phone",
+        "description": "Create a new phone",
+        "operationId": "create-a-new-phone",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "country_prefix",
+            "description": "The country prefix code, such as +1 for the USA."
+          },
+          {
+            "in": "query",
+            "name": "department",
+            "description": "The department this phone number reaches."
+          },
+          {
+            "in": "query",
+            "name": "extension",
+            "description": "The phone number extension. Must only contain numbers. For example: “1234”"
+          },
+          {
+            "in": "query",
+            "name": "number",
+            "description": "The 10-digit US phone number."
+          },
+          {
+            "in": "query",
+            "name": "number_type",
+            "description": "Can be one of these four values: fax, voice, hotline, tty."
+          },
+          {
+            "in": "query",
+            "name": "vanity_number",
+            "description": "The 10-digit US phone number with vanity letters. For example: 703-555-HELP"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          ""
+        ]
+      }
+    },
+    "/locations/:location_id/phones/:phone_id": {
+      "delete": {
+        "summary": "Delete an existing phone",
+        "description": "Delete an existing phone",
+        "operationId": "delete-an-existing-phone",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "location_id",
+            "description": "The location id.",
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "in": "query",
+            "name": "phone_id",
+            "description": "The phone id.",
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          ""
+        ]
+      }
+    },
+    "/organizations": {
+      "post": {
+        "summary": "Create a new organization",
+        "description": "Create a new organization",
+        "operationId": "create-a-new-organization",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "accreditations",
+            "description": "A list of accreditations an organization has received."
+          },
+          {
+            "in": "query",
+            "name": "alternate_name",
+            "description": "Another name this organization might be known by."
+          },
+          {
+            "in": "query",
+            "name": "date_incorporated",
+            "description": "The date this organization was incorporated."
+          },
+          {
+            "in": "query",
+            "name": "description",
+            "description": "A description of what the organization does."
+          },
+          {
+            "in": "query",
+            "name": "email",
+            "description": "The organization’s primary email."
+          },
+          {
+            "in": "query",
+            "name": "funding_sources",
+            "description": "A list of sources of funds for an organization."
+          },
+          {
+            "in": "query",
+            "name": "legal_status",
+            "description": "The conditions an organization is operating under; e.g. non-profit, private corporation or a government organization."
+          },
+          {
+            "in": "query",
+            "name": "licenses",
+            "description": "A list of licenses an organization has obtained to operate legally."
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "Name of the organization"
+          },
+          {
+            "in": "query",
+            "name": "tax_id",
+            "description": "Tax identifier, such as Federal Employer Identification Number."
+          },
+          {
+            "in": "query",
+            "name": "tax_status",
+            "description": "Internal Revenue Service tax designation, such as 501(c)(3) for tax-exempt organizations."
+          },
+          {
+            "in": "query",
+            "name": "website",
+            "description": "The organization’s website"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Organization Response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/organization"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Organizations"
+        ]
+      }
+    },
+    "/organizations/:organization_id": {
+      "delete": {
+        "summary": "Delete an existing organization",
+        "description": "Delete an existing organization",
+        "operationId": "delete-an-existing-organization",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organization_id",
+            "description": "The organization id.",
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "tags": [
+          "Organizations"
+        ],
+        "responses": {
+          "200": {
+            "description": "Organization Response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/organization"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/organizations/:organization_id/locations": {
+      "post": {
+        "summary": "Create a new location",
+        "description": "Create a new location",
+        "operationId": "create-a-new-location",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "accessibility",
+            "description": "Accessibility options available at the location. Accepted values are cd, deaf_interpreter, disabled_parking, elevator, ramp, restroom, tape_braille, tty, wheelchair, and wheelchair_van."
+          },
+          {
+            "in": "query",
+            "name": "address_attributes",
+            "description": "required unless the location is marked as virtual"
+          },
+          {
+            "in": "query",
+            "name": "admin_emails",
+            "description": "Email address for a person allowed to administer the location (via the Ohana API Admin interface for example)."
+          },
+          {
+            "in": "query",
+            "name": "alternate_name",
+            "description": "Another name this location might be known by."
+          },
+          {
+            "in": "query",
+            "name": "description",
+            "description": "Description of services provided at the location"
+          },
+          {
+            "in": "query",
+            "name": "email",
+            "description": "General Email address for location. Emails that belong to contacts should go in the Contact object."
+          },
+          {
+            "in": "query",
+            "name": "languages",
+            "description": "Languages spoken at the location"
+          },
+          {
+            "in": "query",
+            "name": "latitude",
+            "description": "Latitude portion of the location’s coordinates. Note that the app automatically geocodes addresses if the data doesn’t include coordinates"
+          },
+          {
+            "in": "query",
+            "name": "longitude",
+            "description": "Longitude portion of the location’s coordinates. Note that the app automatically geocodes addresses if the data doesn’t include coordinates"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "description": "Name of the location"
+          },
+          {
+            "in": "path",
+            "name": "organization_id",
+            "description": "The organization id.",
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "in": "query",
+            "name": "short_desc",
+            "description": "Succinct description of services provided at the location."
+          },
+          {
+            "in": "query",
+            "name": "transportation",
+            "description": "Public transportation options near the location"
+          },
+          {
+            "in": "query",
+            "name": "virtual",
+            "description": "required if the location does not have a physical address"
+          },
+          {
+            "in": "query",
+            "name": "website",
+            "description": "The location’s website. Must include “http://” or “https://”"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "Organizations"
+        ]
+      }
+    },
+    "/search": {
+      "get": {
+        "summary": "Get locations that match certain criteria.",
+        "description": "Get locations that match certain criteria.",
+        "operationId": "get-locations-that-match-certain-criteria",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "category"
+          },
+          {
+            "in": "query",
+            "name": "email"
+          },
+          {
+            "in": "query",
+            "name": "keyword"
+          },
+          {
+            "in": "query",
+            "name": "language"
+          },
+          {
+            "in": "query",
+            "name": "lat_lng"
+          },
+          {
+            "in": "query",
+            "name": "location"
+          },
+          {
+            "in": "query",
+            "name": "org_name"
+          },
+          {
+            "in": "query",
+            "name": "page"
+          },
+          {
+            "in": "query",
+            "name": "per_page"
+          },
+          {
+            "in": "query",
+            "name": "radius"
+          },
+          {
+            "in": "query",
+            "name": "service_area"
+          },
+          {
+            "in": "query",
+            "name": "status"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "Search"
+        ]
+      }
+    },
+    "/services/:service_id/categories": {
+      "put": {
+        "summary": "Update a service’s categories",
+        "description": "Update a service’s categories",
+        "operationId": "update-a-servicersquos-categories",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "service_id",
+            "description": "The service id.",
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "in": "query",
+            "name": "taxonomy_ids",
+            "description": "An array of valid taxonomy_ids."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "Services"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "organization": {
+      "properties": {
+        "id": {
+          "description": "the id for the organization",
+          "type": "string"
+        },
+        "name": {
+          "description": "the name for the organization",
+          "type": "string"
+        },
+        "alternate_name": {
+          "description": "the alternate name for the organization",
+          "type": "string"
+        },
+        "description": {
+          "description": "the alternate name for the organization",
+          "type": "string"
+        },
+        "email": {
+          "description": "the alternate name for the organization",
+          "type": "string"
+        },
+        "url": {
+          "description": "the alternate name for the organization",
+          "type": "string"
+        },
+        "tax_status": {
+          "description": "the alternate name for the organization",
+          "type": "string"
+        },
+        "tax_id": {
+          "description": "the alternate name for the organization",
+          "type": "string"
+        },
+        "year_incorporated": {
+          "description": "the alternate name for the organization",
+          "type": "string"
+        },
+        "legal_status": {
+          "description": "the alternate name for the organization",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
