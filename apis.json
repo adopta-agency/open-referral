@@ -1,46 +1,43 @@
-
-  {
-    "name": "Open Referral",
-    "description": "The Open Referral API",
-    "image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-authentication-2.png",
-    "x-open-ranking": "0",
-    "tags": [
-      "Authentication"
-    ],
-    "created": "2016-04-03",
-    "modified": "2016-04-03",
-    "url": "http://kinlane.github.io/open-referral/",
-    "specificationVersion": "0.14",
-    "apis": [
-      {
-        "name": "Open Referal API",
-        "description": "Working",
-        "image": "https://s3.amazonaws.com/kinlane-productions/api-evangelist/t-shirts/KL_InApiWeTrust-1000.png",
-        "humanURL": "",
-        "baseURL": "http://kinlane.github.io/open-referral/",
-        "tags": [
-          "Open Referral"
-        ],
-        "properties": [
-          {
-            "type": "x-openapi-spec",
-            "url": "http://kinlane.github.io/open-referral/openapi-spec.json"
-          }
-        ]
-      }
-    ],
-    "x-common": [],
-    "include": [
-      {
-        "name": "Parent",
-        "url": "http://authentication.apievangelist.com/apis.yaml"
-      }
-    ],
-    "maintainers": [
-      {
-        "FN": "Kin Lane",
-        "x-twitter": "apievangelist",
-        "email": "info@apievangelist.com"
-      }
-    ]
-  }
+{
+  "name": "Open Referral",
+  "description": "The Open Referral API",
+  "image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-authentication-2.png",
+  "tags": [
+    "Authentication"
+  ],
+  "created": "2016-04-03",
+  "modified": "2016-04-03",
+  "url": "http://kinlane.github.io/open-referral/",
+  "specificationVersion": "0.14",
+  "apis": [
+    {
+      "name": "Open Referral API",
+      "description": "Working",
+      "image": "https://s3.amazonaws.com/kinlane-productions/api-evangelist/t-shirts/KL_InApiWeTrust-1000.png",
+      "humanURL": "",
+      "baseURL": "http://kinlane.github.io/open-referral/",
+      "tags": [
+        "Open Referral"
+      ],
+      "properties": [
+        {
+          "type": "x-openapi-spec",
+          "url": "http://kinlane.github.io/open-referral/openapi-spec.json"
+        }
+      ]
+    }
+  ],
+  "include": [
+    {
+      "name": "Parent",
+      "url": "http://authentication.apievangelist.com/apis.yaml"
+    }
+  ],
+  "maintainers": [
+    {
+      "FN": "Kin Lane",
+      "x-twitter": "apievangelist",
+      "email": "info@apievangelist.com"
+    }
+  ]
+}
