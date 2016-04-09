@@ -44,81 +44,20 @@
         "summary": "Get Contacts",
         "description": "Get Contacts",
         "operationId": "get-contacts",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "accreditations",
-            "description": "A list of accreditations an organization has received."
-          },
-          {
-            "in": "query",
-            "name": "alternate_name",
-            "description": "Another name this organization might be known by."
-          },
-          {
-            "in": "query",
-            "name": "date_incorporated",
-            "description": "The date this organization was incorporated."
-          },
-          {
-            "in": "query",
-            "name": "description",
-            "description": "A description of what the organization does."
-          },
-          {
-            "in": "query",
-            "name": "email",
-            "description": "The organization’s primary email."
-          },
-          {
-            "in": "query",
-            "name": "funding_sources",
-            "description": "A list of sources of funds for an organization."
-          },
-          {
-            "in": "query",
-            "name": "legal_status",
-            "description": "The conditions an organization is operating under; e.g. non-profit, private corporation or a government organization."
-          },
-          {
-            "in": "query",
-            "name": "licenses",
-            "description": "A list of licenses an organization has obtained to operate legally."
-          },
-          {
-            "in": "query",
-            "name": "name",
-            "description": "Name of the organization"
-          },
-          {
-            "in": "query",
-            "name": "tax_id",
-            "description": "Tax identifier, such as Federal Employer Identification Number."
-          },
-          {
-            "in": "query",
-            "name": "tax_status",
-            "description": "Internal Revenue Service tax designation, such as 501(c)(3) for tax-exempt organizations."
-          },
-          {
-            "in": "query",
-            "name": "website",
-            "description": "The organization’s website"
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
-            "description": "Organization Response",
+            "description": "Contact Response",
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/organization"
+                "$ref": "#/definitions/contacts"
               }
             }
           }
         },
         "tags": [
-          "Organizations"
+          "Contacts"
         ]
       },
       "post": {
@@ -128,78 +67,48 @@
         "parameters": [
           {
             "in": "query",
-            "name": "accreditations",
-            "description": "A list of accreditations an organization has received."
+            "name": "organization_id",
+            "description": ""
           },
           {
             "in": "query",
-            "name": "alternate_name",
-            "description": "Another name this organization might be known by."
-          },
-          {
-            "in": "query",
-            "name": "date_incorporated",
-            "description": "The date this organization was incorporated."
-          },
-          {
-            "in": "query",
-            "name": "description",
-            "description": "A description of what the organization does."
-          },
-          {
-            "in": "query",
-            "name": "email",
-            "description": "The organization’s primary email."
-          },
-          {
-            "in": "query",
-            "name": "funding_sources",
-            "description": "A list of sources of funds for an organization."
-          },
-          {
-            "in": "query",
-            "name": "legal_status",
-            "description": "The conditions an organization is operating under; e.g. non-profit, private corporation or a government organization."
-          },
-          {
-            "in": "query",
-            "name": "licenses",
-            "description": "A list of licenses an organization has obtained to operate legally."
+            "name": "service_id",
+            "description": ""
           },
           {
             "in": "query",
             "name": "name",
-            "description": "Name of the organization"
+            "description": ""
           },
           {
             "in": "query",
-            "name": "tax_id",
-            "description": "Tax identifier, such as Federal Employer Identification Number."
+            "name": "title",
+            "description": ""
           },
           {
             "in": "query",
-            "name": "tax_status",
-            "description": "Internal Revenue Service tax designation, such as 501(c)(3) for tax-exempt organizations."
+            "name": "department",
+            "description": ""
           },
           {
             "in": "query",
-            "name": "website",
-            "description": "The organization’s website"
+            "name": "email",
+            "description": ""
           }
         ],
         "responses": {
           "200": {
-            "description": "Organization Response",
+            "description": "Contact Response",
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/organization"
+                "$ref": "#/definitions/contacts"
               }
             }
           }
         },
         "tags": [
-          "Organizations"
+          "Contacts"
         ]
       }
     },
@@ -211,106 +120,76 @@
         "parameters": [
           {
             "in": "path",
-            "name": "organization_id",
-            "description": "The organization id.",
+            "name": "contact_id",
+            "description": "The contact id.",
             "type": "string",
             "format": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "Organization Response",
+            "description": "Contact Response",
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/organization"
+                "$ref": "#/definitions/contacts"
               }
             }
           }
         },
         "tags": [
-          "Organizations"
+          "Contacts"
         ]
       },
-      "post": {
+      "put": {
         "summary": "Update Contact",
         "description": "Update Contact",
         "operationId": "update-contact",
         "parameters": [
           {
             "in": "query",
-            "name": "accreditations",
-            "description": "A list of accreditations an organization has received."
+            "name": "organization_id",
+            "description": ""
           },
           {
             "in": "query",
-            "name": "alternate_name",
-            "description": "Another name this organization might be known by."
-          },
-          {
-            "in": "query",
-            "name": "date_incorporated",
-            "description": "The date this organization was incorporated."
-          },
-          {
-            "in": "query",
-            "name": "description",
-            "description": "A description of what the organization does."
-          },
-          {
-            "in": "query",
-            "name": "email",
-            "description": "The organization’s primary email."
-          },
-          {
-            "in": "query",
-            "name": "funding_sources",
-            "description": "A list of sources of funds for an organization."
-          },
-          {
-            "in": "query",
-            "name": "legal_status",
-            "description": "The conditions an organization is operating under; e.g. non-profit, private corporation or a government organization."
-          },
-          {
-            "in": "query",
-            "name": "licenses",
-            "description": "A list of licenses an organization has obtained to operate legally."
+            "name": "service_id",
+            "description": ""
           },
           {
             "in": "query",
             "name": "name",
-            "description": "Name of the organization"
+            "description": ""
           },
           {
             "in": "query",
-            "name": "tax_id",
-            "description": "Tax identifier, such as Federal Employer Identification Number."
+            "name": "title",
+            "description": ""
           },
           {
             "in": "query",
-            "name": "tax_status",
-            "description": "Internal Revenue Service tax designation, such as 501(c)(3) for tax-exempt organizations."
+            "name": "department",
+            "description": ""
           },
           {
             "in": "query",
-            "name": "website",
-            "description": "The organization’s website"
+            "name": "email",
+            "description": ""
           }
         ],
         "responses": {
           "200": {
-            "description": "Organization Response",
+            "description": "Contact Response",
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/organization"
+                "$ref": "#/definitions/contacts"
               }
             }
           }
         },
         "tags": [
-          "Organizations"
+          "Contacts"
         ]
       },
       "delete": {
@@ -320,22 +199,22 @@
         "parameters": [
           {
             "in": "path",
-            "name": "organization_id",
+            "name": "contact_id",
             "description": "The organization id.",
             "type": "string",
             "format": "string"
           }
         ],
         "tags": [
-          "Organizations"
+          "Contacts"
         ],
         "responses": {
           "200": {
-            "description": "Organization Response",
+            "description": "Contact Response",
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/organization"
+                "$ref": "#/definitions/contacts"
               }
             }
           }
@@ -464,7 +343,7 @@
           ""
         ]
       },
-      "update": {
+      "put": {
         "summary": "Update Phone",
         "description": "Update Phone",
         "operationId": "update-phone",
@@ -1872,7 +1751,7 @@
           ""
         ]
       },
-      "update": {
+      "put": {
         "summary": "Update Phone",
         "description": "Update Phone",
         "operationId": "update-phone",
@@ -2053,7 +1932,7 @@
           ""
         ]
       },
-      "update": {
+      "put": {
         "summary": "Update Regular Schedule",
         "description": "Update Regular Schedule",
         "operationId": "update-regular-schedule",
@@ -2234,7 +2113,7 @@
           ""
         ]
       },
-      "update": {
+      "put": {
         "summary": "Update Service At Location",
         "description": "Update Service At Location",
         "operationId": "update-service-location",
@@ -2311,7 +2190,7 @@
           }
         },
         "tags": [
-          ""
+          "Locations"
         ]
       },
       "post": {
@@ -2321,33 +2200,13 @@
         "parameters": [
           {
             "in": "query",
-            "name": "country_prefix",
-            "description": "The country prefix code, such as +1 for the USA."
+            "name": "location_id",
+            "description": ""
           },
           {
             "in": "query",
-            "name": "department",
-            "description": "The department this phone number reaches."
-          },
-          {
-            "in": "query",
-            "name": "extension",
-            "description": "The phone number extension. Must only contain numbers. For example: “1234”"
-          },
-          {
-            "in": "query",
-            "name": "number",
-            "description": "The 10-digit US phone number."
-          },
-          {
-            "in": "query",
-            "name": "number_type",
-            "description": "Can be one of these four values: fax, voice, hotline, tty."
-          },
-          {
-            "in": "query",
-            "name": "vanity_number",
-            "description": "The 10-digit US phone number with vanity letters. For example: 703-555-HELP"
+            "name": "accessibility",
+            "description": ""
           }
         ],
         "responses": {
@@ -2356,7 +2215,7 @@
           }
         },
         "tags": [
-          ""
+          "Locations"
         ]
       }
     },
@@ -2367,18 +2226,9 @@
         "operationId": "get-service-location",
         "parameters": [
           {
-            "in": "path",
-            "name": "location_id",
-            "description": "The location id.",
-            "type": "string",
-            "format": "string"
-          },
-          {
             "in": "query",
-            "name": "phone_id",
-            "description": "The phone id.",
-            "type": "string",
-            "format": "string"
+            "name": "location_id",
+            "description": ""
           }
         ],
         "responses": {
@@ -2387,27 +2237,28 @@
           }
         },
         "tags": [
-          ""
+          "Locations"
         ]
       },
-      "update": {
+      "put": {
         "summary": "Update Accessibility For Disabilities",
         "description": "Update Accessibility For Disabilities",
         "operationId": "update-accessibility-for-disabilities",
         "parameters": [
           {
-            "in": "path",
-            "name": "location_id",
-            "description": "The location id.",
-            "type": "string",
-            "format": "string"
+            "in": "query",
+            "name": "accessibility_for_disabilities_id",
+            "description": ""
           },
           {
             "in": "query",
-            "name": "phone_id",
-            "description": "The phone id.",
-            "type": "string",
-            "format": "string"
+            "name": "location_id",
+            "description": ""
+          },
+          {
+            "in": "query",
+            "name": "accessibility",
+            "description": ""
           }
         ],
         "responses": {
@@ -2416,7 +2267,7 @@
           }
         },
         "tags": [
-          ""
+          "Locations"
         ]
       },
       "delete": {
@@ -2425,18 +2276,14 @@
         "operationId": "delete-accessibility-for-disabilities",
         "parameters": [
           {
-            "in": "path",
-            "name": "location_id",
-            "description": "The location id.",
-            "type": "string",
-            "format": "string"
+            "in": "query",
+            "name": "accessibility_for_disabilities_id",
+            "description": ""
           },
           {
             "in": "query",
-            "name": "phone_id",
-            "description": "The phone id.",
-            "type": "string",
-            "format": "string"
+            "name": "location_id",
+            "description": ""
           }
         ],
         "responses": {
@@ -2445,7 +2292,7 @@
           }
         },
         "tags": [
-          ""
+          "Locations"
         ]
       }
     },
@@ -4050,7 +3897,7 @@
           ""
         ]
       },
-      "update": {
+      "put": {
         "summary": "Update Phone",
         "description": "Update Phone",
         "operationId": "update-phone",
@@ -8156,7 +8003,7 @@
           ""
         ]
       },
-      "update": {
+      "put": {
         "summary": "Update Phone",
         "description": "Update Phone",
         "operationId": "update-phone",
@@ -8337,7 +8184,7 @@
           ""
         ]
       },
-      "update": {
+      "put": {
         "summary": "Update Regular Schedule",
         "description": "Update Regular Schedule",
         "operationId": "update-regular-schedule",
@@ -8518,7 +8365,7 @@
           ""
         ]
       },
-      "update": {
+      "put": {
         "summary": "Update Required Document",
         "description": "Update Required Document",
         "operationId": "update-required-document",
@@ -8699,7 +8546,7 @@
           ""
         ]
       },
-      "update": {
+      "put": {
         "summary": "Update Service Area",
         "description": "Update Service Area",
         "operationId": "update-service-area",
